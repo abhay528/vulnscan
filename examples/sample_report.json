@@ -1,0 +1,75 @@
+{
+  "target": "scanme.example.org",
+  "ip": "203.0.113.10",
+  "started_at": "2026-07-17T14:20:00",
+  "finished_at": "2026-07-17T14:20:07",
+  "open_ports": 4,
+  "total_findings": 4,
+  "severity_counts": {
+    "LOW": 1,
+    "MEDIUM": 1,
+    "HIGH": 1,
+    "CRITICAL": 1
+  },
+  "ports": [
+    {
+      "port": 21,
+      "service": "FTP",
+      "banner": "220 (vsFTPd 2.3.4)",
+      "product": "vsftpd",
+      "version": "2.3.4",
+      "findings": [
+        {
+          "title": "Weak/insecure service: FTP",
+          "severity": "MEDIUM",
+          "description": "FTP often allows anonymous or plaintext logins.",
+          "reference": ""
+        },
+        {
+          "title": "Outdated vsftpd 2.3.4",
+          "severity": "CRITICAL",
+          "description": "vsftpd 2.3.4 shipped with a malicious backdoor.",
+          "reference": "CVE-2011-2523"
+        }
+      ]
+    },
+    {
+      "port": 22,
+      "service": "SSH",
+      "banner": "SSH-2.0-OpenSSH_6.6.1p1",
+      "product": "OpenSSH",
+      "version": "6.6",
+      "findings": [
+        {
+          "title": "Outdated OpenSSH 6.6",
+          "severity": "HIGH",
+          "description": "OpenSSH before 8.0 has several known vulnerabilities.",
+          "reference": "multiple"
+        }
+      ]
+    },
+    {
+      "port": 80,
+      "service": "HTTP",
+      "banner": "HTTP/1.1 200 OK",
+      "product": "",
+      "version": "",
+      "findings": [
+        {
+          "title": "Weak/insecure service: HTTP",
+          "severity": "LOW",
+          "description": "HTTP has no transport encryption; prefer HTTPS.",
+          "reference": ""
+        }
+      ]
+    },
+    {
+      "port": 443,
+      "service": "HTTPS",
+      "banner": "HTTP/1.1 200 OK",
+      "product": "",
+      "version": "",
+      "findings": []
+    }
+  ]
+}

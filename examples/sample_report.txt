@@ -1,0 +1,35 @@
+============================================================
+           VULNERABILITY SCAN REPORT
+============================================================
+Target        : scanme.example.org (203.0.113.10)
+Started       : 2026-07-17T14:20:00
+Finished      : 2026-07-17T14:20:07
+Open ports    : 4
+Total findings: 4
+Severity      : LOW:1  MEDIUM:1  HIGH:1  CRITICAL:1
+------------------------------------------------------------
+
+[21/tcp] FTP
+  Product: vsftpd 2.3.4
+  Banner : 220 (vsFTPd 2.3.4)
+  [MEDIUM] Weak/insecure service: FTP
+        FTP often allows anonymous or plaintext logins.
+  [CRITICAL] Outdated vsftpd 2.3.4 [CVE-2011-2523]
+        vsftpd 2.3.4 shipped with a malicious backdoor.
+
+[22/tcp] SSH
+  Product: OpenSSH 6.6
+  Banner : SSH-2.0-OpenSSH_6.6.1p1
+  [HIGH] Outdated OpenSSH 6.6 [multiple]
+        OpenSSH before 8.0 has several known vulnerabilities.
+
+[80/tcp] HTTP
+  Banner : HTTP/1.1 200 OK
+  [LOW] Weak/insecure service: HTTP
+        HTTP has no transport encryption; prefer HTTPS.
+
+[443/tcp] HTTPS
+  Banner : HTTP/1.1 200 OK
+  [OK] No obvious issue detected
+
+============================================================

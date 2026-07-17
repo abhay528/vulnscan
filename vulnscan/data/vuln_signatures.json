@@ -1,0 +1,55 @@
+{
+  "_comment": "Small demo signature set for educational use. 'max_vulnerable' means versions <= that value are flagged. Not a live CVE feed.",
+  "signatures": [
+    {
+      "product": "OpenSSH",
+      "max_vulnerable": "7.9",
+      "severity": "HIGH",
+      "cve": "multiple",
+      "description": "OpenSSH versions before 8.0 contain several known vulnerabilities; upgrade recommended."
+    },
+    {
+      "product": "vsftpd",
+      "exact": "2.3.4",
+      "max_vulnerable": "2.3.4",
+      "severity": "CRITICAL",
+      "cve": "CVE-2011-2523",
+      "description": "vsftpd 2.3.4 shipped with a malicious backdoor granting a root shell on port 6200."
+    },
+    {
+      "product": "Apache",
+      "max_vulnerable": "2.2.99",
+      "severity": "HIGH",
+      "cve": "multiple",
+      "description": "Apache httpd 2.2.x is end-of-life and no longer receives security updates."
+    },
+    {
+      "product": "nginx",
+      "max_vulnerable": "1.19.99",
+      "severity": "MEDIUM",
+      "cve": "multiple",
+      "description": "nginx before 1.20 misses several security fixes; upgrade to a current stable release."
+    },
+    {
+      "product": "IIS",
+      "max_vulnerable": "7.5",
+      "severity": "HIGH",
+      "cve": "multiple",
+      "description": "Microsoft IIS 7.5 and earlier are outdated and have multiple known issues."
+    },
+    {
+      "product": "Exim",
+      "max_vulnerable": "4.91",
+      "severity": "CRITICAL",
+      "cve": "CVE-2019-10149",
+      "description": "Exim before 4.92 is vulnerable to remote command execution (The Return of the WIZard)."
+    },
+    {
+      "product": "MySQL",
+      "max_vulnerable": "5.6.99",
+      "severity": "MEDIUM",
+      "cve": "multiple",
+      "description": "MySQL 5.6 and earlier are end-of-life; upgrade to a supported release."
+    }
+  ]
+}
