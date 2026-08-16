@@ -1,6 +1,6 @@
 # vulnscan
 
-[![CI](https://github.com/your-username/vulnscan/actions/workflows/ci.yml/badge.svg)](https://github.com/your-username/vulnscan/actions)
+[![CI](https://github.com/abhay528/vulnscan/actions/workflows/ci.yml/badge.svg)](https://github.com/abhay528/vulnscan/actions)
 ![Python](https://img.shields.io/badge/python-3.9%2B-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
@@ -40,7 +40,7 @@ is illegal in most jurisdictions.
 ## 📦 Installation
 
 ```bash
-git clone https://github.com/your-username/vulnscan.git
+git clone https://github.com/abhay528/vulnscan.git
 cd vulnscan
 python -m pip install -e .
 ```
