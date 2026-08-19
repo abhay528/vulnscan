@@ -55,6 +55,10 @@ def test_formats_tuple_matches_cli_choices():
     assert report.FORMATS == ("text", "json", "html")
 
 
+def test_reported_severities_exclude_info_and_are_worst_first():
+    assert report._REPORTED_SEVERITIES == ("CRITICAL", "HIGH", "MEDIUM", "LOW")
+
+
 def test_render_defaults_to_text():
     assert report.render(make_result()) == report.render_text(make_result())
 
@@ -78,6 +82,13 @@ def test_render_text_is_worst_first():
 def test_render_text_has_no_ansi_escapes():
     # The CLI can write this straight to a file via -o.
     assert "\033" not in report.render_text(make_result())
+
+
+def test_render_text_collapses_multiline_banner():
+    result = make_result()
+    result.ports[2].banner = "line one\r\nline two"
+    output = report.render_text(result)
+    assert "Banner  : line one line two" in output
 
 
 def test_render_json_round_trips():
@@ -114,6 +125,11 @@ def test_render_html_does_not_link_unsafe_reference_scheme():
     assert 'href="javascript:' not in output
 
 
+def test_render_html_links_http_reference():
+    output = report.render_html(make_result())
+    assert 'href="https://redis.io/docs/management/security/"' in output
+
+
 def test_render_handles_empty_scan():
     empty = ScanResult(
         target="example.test",
@@ -139,4 +155,3 @@ def test_render_rejects_unknown_format():
 
 def test_render_normalises_format_string():
     assert report.render(make_result(), "  JSON ") == report.render_json(make_result())
-}

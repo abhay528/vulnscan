@@ -35,8 +35,11 @@ __all__ = ["FORMATS", "render", "render_html", "render_json", "render_text"]
 FORMATS: tuple[str, ...] = ("text", "json", "html")
 
 #: Severity levels shown in summaries, worst first. ``INFO`` is excluded to
-#: match :meth:`ScanResult.severity_counts`.
-_REPORTED_SEVERITIES: tuple[str, ...] = ("CRITICAL", "HIGH", "MEDIUM", "LOW")
+#: match :meth:`ScanResult.severity_counts`. Derived from the enum so that
+#: adding a level cannot silently desynchronise the reports.
+_REPORTED_SEVERITIES: tuple[str, ...] = tuple(
+    level.name for level in sorted(Severity, reverse=True) if level is not Severity.INFO
+)
 
 #: Badge colours for the HTML report.
 _SEVERITY_HEX: dict[str, str] = {
@@ -306,7 +309,7 @@ def render_html(result: ScanResult) -> str:
                 "<h2>"
                 f'<span class="badge" style="background:{colour}">{sev}</span>'
                 f"Port {port.port}/tcp"
-                f"<span style=\"color:#9ca3af;font-weight:400\">"
+                f'<span style="color:#9ca3af;font-weight:400">'
                 f"{esc(port.service)}</span>"
                 "</h2>"
             )
